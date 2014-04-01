@@ -85,16 +85,16 @@ module SMTP
       # line at a time, and holding all of a very large message in memory.
       #
       def receive_data_chunk data
-        @smtps_msg_size ||= 0
-        @smtps_msg_size += data.join.length
-        STDERR.write "<#{@smtps_msg_size}>"
+        #@smtps_msg_size ||= 0
+        #@smtps_msg_size += data.join.length
+        #STDERR.write "<#{@smtps_msg_size}>"
       end
 
       # Sent after a message has been completely received. User code
       # must return true or false to indicate whether the message has
       # been accepted for delivery.
       def receive_message
-        $>.puts "Received complete message"
+        #$>.puts "Received complete message"
         true
       end
 

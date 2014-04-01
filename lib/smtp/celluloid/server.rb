@@ -36,7 +36,7 @@ module SMTP
 
       def handle_connection( socket )
         _, port, host = socket.peeraddr
-        puts "*** Received connection from #{host}:#{port}"
+        #puts "*** Received connection from #{host}:#{port}"
 
         connection = Connection.new( socket )
       rescue EOFError
