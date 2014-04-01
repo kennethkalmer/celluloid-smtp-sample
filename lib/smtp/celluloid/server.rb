@@ -8,6 +8,15 @@ module SMTP
       include ::Celluloid::IO
       finalizer :finalize
 
+      def self.start!( host, port )
+        supervisor = self.supervise( host, port )
+        trap("INT") { supervisor.terminate; exit }
+
+        loop do
+          sleep 5 while supervisor.alive?
+        end
+      end
+
       def initialize( host, port )
         # Since we're including Celluloid::IO, we're actually making a
         # Celluloid::IO::TCPServer here

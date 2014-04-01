@@ -13,12 +13,7 @@ module SMTP
   end
 
   def start!( server )
-    supervisor = server.supervise( host, port )
-    trap("INT") { supervisor.terminate; exit }
-
-    loop do
-      sleep 5 while supervisor.alive?
-    end
+    server.start! host, port
   end
 
 end
