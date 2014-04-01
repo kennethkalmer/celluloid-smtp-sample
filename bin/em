@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+
+require_relative '../lib/smtp'
+require 'smtp/em'
+
+SMTP.start! SMTP::EM::Server
