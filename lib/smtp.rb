@@ -5,7 +5,7 @@ module SMTP
   extend self
 
   def host
-    ENV['HOST'] || 'localhost'
+    ENV['HOST'] || '127.0.0.1'
   end
 
   def port
